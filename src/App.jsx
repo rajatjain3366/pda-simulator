@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import StateDiagram from "./StateDiagram";
+import LandingPage from "./LandingPage";
 
 const PRESETS = [
   {
@@ -202,6 +203,7 @@ const PRESETS = [
 ];
 
 export default function App() {
+  const [showLanding, setShowLanding] = useState(true);
   const [startState, setStartState] = useState("q0");
   const [acceptStatesText, setAcceptStatesText] = useState("q_accept");
   const [initialStackSymbol, setInitialStackSymbol] = useState("Z0");
@@ -435,6 +437,10 @@ export default function App() {
       setStatus("Idle");
     }
   };
+
+  if (showLanding) {
+    return <LandingPage onEnter={() => setShowLanding(false)} />;
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 pb-28">
