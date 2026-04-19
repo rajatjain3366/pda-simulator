@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import StateDiagram from "./StateDiagram";
 
 const PRESETS = [
   {
@@ -798,8 +799,14 @@ q1, e, Z0 -> q_accept, Z0`}</pre>
             </div>
           </section>
 
-          <section className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl shadow-slate-900/20">
-            <h2 className="text-2xl font-semibold">Simulation</h2>
+          <div className="flex flex-col gap-6">
+            <section className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl shadow-slate-900/20">
+              <h2 className="text-2xl font-semibold mb-4">State Diagram</h2>
+              <StateDiagram rules={rules} currentState={currentState} startState={startState} acceptStates={acceptStates} />
+            </section>
+
+            <section className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl shadow-slate-900/20">
+              <h2 className="text-2xl font-semibold">Simulation</h2>
             <div className="mt-5 space-y-4">
               <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
                 <label className="space-y-2 text-sm text-slate-300">
@@ -911,6 +918,7 @@ q1, e, Z0 -> q_accept, Z0`}</pre>
               </div>
             </div>
           </section>
+          </div>
         </div>
       </div>
     </div>
